@@ -1,6 +1,6 @@
 # Lab 7 - Starter Code
 
-Name: Lynn Dang
+Name: Lynn Dang & Everett Lin
 
 [link](https://lmidang.github.io/Lab7_Starter/)
 

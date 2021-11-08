@@ -3,12 +3,21 @@
 
 const CACHE_NAME = 'lab-7-starter';
 
+
 // Once the service worker has been installed, feed it some initial URLs to cache
 self.addEventListener('install', function (event) {
   /**
    * TODO - Part 2 Step 2
    * Create a function as outlined above
    */
+  // Perform install steps
+
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        console.log('Opened cache');
+      })
+  )
 });
 
 /**
@@ -21,6 +30,15 @@ self.addEventListener('activate', function (event) {
    * TODO - Part 2 Step 3
    * Create a function as outlined above, it should be one line
    */
+   const urlsToCache = [
+    '/',
+    '/styles/main.css',
+    '/script/main.js',
+    '/script/Router.js'
+  ];
+   event.waitUntil(clients.claim().then(function(cache) {
+    return cache.addAll(urlsToCache);
+   }));
 });
 
 // Intercept fetch requests and store them in the cache
@@ -29,4 +47,14 @@ self.addEventListener('fetch', function (event) {
    * TODO - Part 2 Step 4
    * Create a function as outlined above
    */
+   event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        // Cache hit - return response
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+      })
+  )
 });
