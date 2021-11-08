@@ -9,4 +9,4 @@ Name: Lynn Dang & Everett Lin
 
 ## Explore
 ![part-2-1](/screenshots/part-2b-1.JPG)
-![part-2-2](/screesnots/part-2b-2.JPG)
+![part-2-2](screenshots/part-2b-2.JPG)
