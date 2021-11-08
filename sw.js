@@ -30,13 +30,13 @@ self.addEventListener('activate', function (event) {
    * TODO - Part 2 Step 3
    * Create a function as outlined above, it should be one line
    */
-   const urlsToCache = [
-    '/',
-    '/styles/main.css',
-    '/script/main.js',
-    '/script/Router.js'
+   var urlsToCache = [
+    '',
+    'styles/main.css',
+    'script/main.js',
+    'script/Router.js'
   ];
-   event.waitUntil(clients.claim().then(function(cache) {
+  event.waitUntil(clients.claim().then(function(cache) {
     return cache.addAll(urlsToCache);
    }));
 });
